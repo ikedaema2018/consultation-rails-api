@@ -1,11 +1,19 @@
 class UsersController < ApplicationController
   def create
     @user = User.create(create_params)
-    p @user
     render json: @user
 
-  rescue ActiveRecord::RecordNotUnique =>  e
-    render status: 422, json: { error: 'RecordNotUnique', status: 422 } 
+  
+  # rescue ActiveRecord::RecordNotUnique =>  e
+  #   render status: 422, json: { error: 'RecordNotUnique', status: 422 } 
+  # end
+    # rescue_from Exception, with: :handle500
+
+
+    # def handle500
+    #   p "dawdawdadadawdawdawdaw"
+    #   render status: 500
+    # end
   end
 
   def index
