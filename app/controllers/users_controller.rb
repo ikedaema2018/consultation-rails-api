@@ -10,12 +10,12 @@ class UsersController < ApplicationController
   end
 
   def test
-    @test = {a: "aaa", b: "bbb"}
-    p @test[:a]
-    render json: @test
+    p "aaaaaa"
+    @user = User.all
+    render json: @user
   end
 
   def create_params
-    params[:user].permit(:name, :email, :password, :password_confiramtion, :gender, :age, :introduction)
+    params.require(:user).permit(:name, :email, :password, :password_confiramtion, :gender, :age, :introduction)
   end
 end
