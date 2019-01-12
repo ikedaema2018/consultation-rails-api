@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   def create
     p create_params
     @user = User.create(create_params)
-    p "bbbbb"
     render json: @user
 
   
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
   end
 
   def test
-    p "aaaaaa"
     @user = User.all
     render json: @user
   end
