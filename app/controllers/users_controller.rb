@@ -8,13 +8,6 @@ class UsersController < ApplicationController
   rescue ActiveRecord::RecordNotUnique =>  e
     render status: 422, json: { error: 'RecordNotUnique', status: 422 } 
   
-    # rescue_from Exception, with: :handle500
-
-
-    # def handle500
-    #   p "dawdawdadadawdawdawdaw"
-    #   render status: 500
-    # end
   end
 
   def index
