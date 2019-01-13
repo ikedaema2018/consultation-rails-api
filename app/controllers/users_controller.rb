@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  require 'redis'
+
   def create
     p create_params
     @user = User.create(create_params)
@@ -10,13 +12,14 @@ class UsersController < ApplicationController
   
   end
 
-  def index
-    render json: {test: "test"}
+  def test
+    render json: {"user": "dada"}
+    Redis.current.set("hoge", "fuga")
+    session[:user_email] = 'test@a.a'
   end
 
-  def test
-    @user = User.all
-    render json: @user
+  def index
+    render json: {"user": "dada"}
   end
 
   def create_params
