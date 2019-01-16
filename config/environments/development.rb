@@ -60,4 +60,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.web_console.whitelisted_ips = '0.0.0.0/0'
+
+  config.session_store :redis_store, servers: 'redis://localhost:6379/0', expire_in: 1.minutes
 end
