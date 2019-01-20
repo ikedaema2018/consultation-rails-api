@@ -8,4 +8,6 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validates :age, presence: true
   validates :introduction, presence: false
+
+  has_many :worry
 end

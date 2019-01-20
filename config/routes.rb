@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/admin_users', to: 'admin_users#index'
 
   post '/worry', to: 'worries#create'
+  get '/worry', to: 'worries#index'
 end
