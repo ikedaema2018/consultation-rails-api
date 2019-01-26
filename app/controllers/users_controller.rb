@@ -6,10 +6,8 @@ class UsersController < ApplicationController
     @user = User.create(create_params)
     render json: @user
 
-  
   rescue ActiveRecord::RecordNotUnique =>  e
-    render status: 422, json: { error: 'RecordNotUnique', status: 422 } 
-  
+    render status: 422, json: { error: 'RecordNotUnique', status: 422 }
   end
 
   def test
