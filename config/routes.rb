@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/worry/:id', to: 'worries#show'
   post '/worry', to: 'worries#create'
   get '/worry', to: 'worries#index'
+  
+  post '/worry_comment', to: 'worry_comments#create'
 end

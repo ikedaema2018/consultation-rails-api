@@ -14,7 +14,7 @@ class WorriesController < ApplicationController
   end
 
   def index
-    worries = Worry.joins(:user).select('worries.*, users.name')
+    worries = Worry.joins(:user).select('worries.*, users.name').order(id: "DESC")
     render json: worries
   end
 
@@ -23,7 +23,7 @@ class WorriesController < ApplicationController
     worry_user = {name: worry.user.name}
     user_ids = worry.worry_comments.pluck(:user_id)
     worry_comments_users = User.where(id: user_ids).flat_map{|d| [id: d.id, name: d.name]}
-    render json: {worry: worry, worry_user: worry.user, worry_comments: worry.worry_comments, worry_comment_users: worry_comments_users  }
+    render json: { worry: worry, worry_user: worry.user, worry_comments: worry.worry_comments, worry_comment_users: worry_comments_users }
   end
 
 
